@@ -1,12 +1,12 @@
 from argparse import ArgumentParser
 from functools import partial
-import cPickle as pickle
+import  pickle #import cPickle as pickle
 
 import numpy as np
 
 
 def make_id2word(vocab):
-    return dict((id, word) for word, (id, _) in vocab.iteritems())
+    return dict((id, word) for word, (id, _) in vocab.items())
 
 
 def merge_main_context(W, merge_fun=lambda m, c: np.mean([m, c], axis=0),
