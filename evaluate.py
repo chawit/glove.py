@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 from functools import partial
-import  pickle #import cPickle as pickle
+import _pickle as pickle
 
 import numpy as np
 
@@ -19,7 +19,7 @@ def merge_main_context(W, merge_fun=lambda m, c: np.mean([m, c], axis=0),
     By default, `merge_fun` returns the mean of the two vectors.
     """
 
-    vocab_size = len(W) / 2
+    vocab_size = int(len(W) / 2)
     for i, row in enumerate(W[:vocab_size]):
         merged = merge_fun(row, W[i + vocab_size])
         if normalize:

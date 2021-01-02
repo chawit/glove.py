@@ -8,8 +8,7 @@ from functools import partial
 import logging
 from math import log
 import os.path
-
-import  pickle #import cPickle as pickle
+import _pickle as pickle
 from random import shuffle
 
 import msgpack
@@ -171,8 +170,7 @@ def build_cooccur(vocab, corpus, window_size=10, min_count=None):
 
     # Now yield our tuple sequence (dig into the LiL-matrix internals to
     # quickly iterate through all nonzero cells)
-    for i, (row, data) in enumerate(zip(cooccurrences.rows,
-                                                   cooccurrences.data)):
+    for i, (row, data) in enumerate(zip(cooccurrences.rows,cooccurrences.data)):
         if min_count is not None and vocab[id2word[i]][1] < min_count:
             continue
 
